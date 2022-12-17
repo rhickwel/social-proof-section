@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+:root{
+    --very-dark-magenta: hsl(300, 43%, 22%);
+    --soft-pink: hsl(333, 80%, 67%);
+
+    --dark-grayish-magenta: hsl(303, 10%, 53%);
+    --light-grayish-magenta: hsl(300, 24%, 96%);
+    --white: hsl(0, 0%, 100%);
+
+    --paragraph-font-size: 15px;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font: inherit;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--white);
+
+    font-family: 'League Spartan', arial, sans-serif;
+    font-size: var(--paragraph-font-size);
+}
+
+img, picture, svg, video{
+    display: block;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+/* ****** */
+/* LAYOUT */
+/* ****** */
+
+/* background */
+.background{
+    position: absolute;
+    z-index: -1;
+
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.cloud{
+    position: absolute;
+    object-fit: contain;
+    opacity: 0.5;
+}
+
+.cloud-top{
+    top: 0;
+    left: 0;
+
+    width: 50%;
+}
+
+.cloud-bottom{
+    bottom: 0;
+    right: 0;
+
+    width: 75%;
+}
+
+/* contents */
+main{
+    min-width: 280px;    
+    max-width: 320px;
+    padding: 4em 1.5em;
+    margin: auto;
+}
+
+.top{
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+.heading{
+    margin: 0 1em;
+    margin-bottom: 0.5em;
+
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--very-dark-magenta);
+}
+
+.paragraph{
+    margin-bottom: 1em;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--dark-grayish-magenta);
+}
+
+/* ratings | reviews */
+.ratings-container, .reviews-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ratings */
+.rating-card{
+    background-color: var(--light-grayish-magenta);
+    border-radius: 5px;
+    padding: 0.5em;
+
+    transition: 0.3s;
+}
+
+.stars{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 1em;
+}
+
+.rating-paragraph{
+    font-weight: 700;
+    color: var(--very-dark-magenta);
+}
+
+/* reviews */
+.review-card{
+    background-color: var(--very-dark-magenta);
+    border-radius: 5px;
+    border: 5px;
+    padding: 2em;
+
+    transition: 0.3s;
+}
+
+.rating-card:hover, .review-card:hover{
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.329);
+    transform: scale(1.1);
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5em;
+}
+
+.user-profile{
+    max-width: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.name{
+    margin-bottom: 0.2em;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.verified-buyer{
+    font-weight: 500;
+    color: var(--soft-pink);
+    opacity: 0.7;
+}
+
+blockquote{
+    line-height: 20px;
+    font-weight: 400;
+    color: white;
+}
+
+@media(min-width: 700px){
+    main{
+        min-width: none;
+        max-width: 1440px;
+        padding: 3.5em;
+    }
+
+    .top{
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(2, 50%);
+    }
+
+    article{
+        text-align: left;
+    }
+
+    .heading{
+        max-width: 50%;
+        margin: 0;
+        margin-bottom: 1em;
+
+        font-size: 35px;
+    }
+
+    .paragraph{
+        max-width: 70%;
+    }
+
+    /* ratings */
+    .rating-card{
+        max-width: 90%;
+    }
+
+    /* rating card alignment */
+    .rating-card:nth-of-type(1){
+        margin-left: 0;
+    }
+
+    .rating-card:nth-of-type(2){
+        margin-left: 2em;
+    }
+
+    .rating-card:nth-of-type(3){
+        margin-left: 4em;
+    }
+
+    /* reviews */
+    .reviews-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        height: 320px;
+    }
+
+    .review-card{
+        height: 260px;
+        padding: 2em;
+    }
+
+    /* review card alignment */
+    .review-card:nth-of-type(1){
+        margin-top: 0;
+    }
+
+    .review-card:nth-of-type(2){
+        margin-top: 2em;
+    }
+
+    .review-card:nth-of-type(3){
+        margin-top: 4em;
+    }
+}
